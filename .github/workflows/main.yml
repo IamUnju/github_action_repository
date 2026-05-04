@@ -1,7 +1,10 @@
 name: testing_ci
 
 on:
-    workflow_dispatch:
+  push:
+    branches:
+      - master
+
 
 jobs:
     say-hello-test:
