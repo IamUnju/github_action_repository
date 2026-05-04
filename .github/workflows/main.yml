@@ -1,0 +1,12 @@
+name: testing_ci
+
+on:
+    workflow_dispatch:
+
+jobs:
+    say-hello-test:
+     runs-on: ubuntu-24.04
+     steps:
+        - run: echo "this is my first github actions"
+        
+        
