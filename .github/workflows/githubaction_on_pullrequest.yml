@@ -1,0 +1,21 @@
+name: action up on pull request
+
+on:
+    pull_request:
+        types:
+            - opened
+            - synchronize
+            - reopened
+        paths:
+            - data_html/"*.html"
+jobs:
+    pull_request_workflow:
+        runs-on: ubuntu-24.04
+        steps:
+            - name: pull request actions 
+              run: |
+               echo "===$GITHUB_EVENT_NAME=="
+               cat "$GITHUB_EVENT_PATH"
+              
+
+
