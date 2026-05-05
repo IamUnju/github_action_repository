@@ -1,7 +1,11 @@
 name: variable across jobs and steps
 
 on:
-    workflow_dispatch:
+    push:
+        branches:
+            - master
+            - features/home
+
 jobs:
     producer:
         runs-on: ubuntu-latest
@@ -19,7 +23,7 @@ jobs:
               run: |
                   echo "$foo"
                   echo "$FOO"
-                  echo "${{steps.generate-foo.outputs.foo}}"
+                  echo "${{ steps.generate-foo.outputs.foo }}"
                   
     consumer:
         runs-on: ubuntu-latest
