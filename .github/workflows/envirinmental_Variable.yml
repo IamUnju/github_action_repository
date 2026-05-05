@@ -1,9 +1,10 @@
 name: environmental variable scope
 on:
-    push:
-        branches:
-            - master
-            - features/home
+    # push:
+    #     branches:
+    #         - master
+    #         - features/home
+  workflow_dispatch:
 env:
     WORKFLOW_VAR: SCOPE IS ALLOVER THE WORKFLOW
 

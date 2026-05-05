@@ -1,9 +1,10 @@
 name: action up on pull request
 
 on:
-    push:
-        branches:
-            - features/home
+    # push:
+        # branches:
+        #     - features/home
+    workflow_dispatch:
 
     pull_request:
         types:
