@@ -1,13 +1,17 @@
 name: action up on pull request
 
 on:
+    push:
+        branches:
+            - features/home
+
     pull_request:
         types:
             - opened
             - synchronize
             - reopened
         paths:
-            - "!data_html/*.html"
+            - "data_html/*.html"
             - "text/*.txt"
 jobs:
     pull_request_workflow:
