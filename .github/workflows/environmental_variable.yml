@@ -8,9 +8,27 @@ jobs:
         environment: production_environment
         env:
             PRODUCTION_ENV_SCREATE_KEY: ${{ secrets.PRODUCTION_SECREATE_KEY }}
-            PRODUCTION_ENV_VARIABLE: ${{ vars.PRODUCTION_ENV_VARIABLE }}         
+            PRODUCTION_ENV_VARIABLE: ${{ vars.PRODUCTION_ENV_VARIABLE }} 
+            REPOSITORY_SECREATE: ${{secrets.REPOSITORY_SECREATE}}
+            REPOSITORY_VARIABLE: ${{vars.REPOSITORY_VARIABLE}}       
         steps:
             - name: production environmental
               run: |
                    echo "this is the production env secreate: $PRODUCTION_ENV_SCREATE_KEY"
-                   echo "this is the production env variable: $PRODUCTION_ENV_VARIABLE"     
+                   echo "this is the production env variable: $PRODUCTION_ENV_VARIABLE"
+                   echo "this is the  REPOSITORY_SECREATE: $REPOSITORY_SECREATE"
+                   echo "this is the REPOSITORY VARIABLE: $REPOSITORY_VARIABLE"
+
+    accessing_staging_variables:
+        runs-on: ubuntu-latest
+        environment: staging_environment
+        env:
+            staging_secreate_key: ${{ secrets.STAGING_SECREATE_KEY }} 
+            staging_variables: ${{vars.STAGING_ENVIRONMENTAL_VARIABLE}}
+        steps:
+            - name: staging environment
+              run: |
+                    echo "this is the production env secreate: $PRODUCTION_ENV_SCREATE_KEY"
+                    echo "this is the production env variable: $PRODUCTION_ENV_VARIABLE"
+                    echo "this is the  REPOSITORY_SECREATE: $REPOSITORY_SECREATE"
+                    echo "this is the REPOSITORY VARIABLE: $REPOSITORY_VARIABLE"
