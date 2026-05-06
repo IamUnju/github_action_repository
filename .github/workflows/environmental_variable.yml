@@ -25,10 +25,12 @@ jobs:
         env:
             staging_secreate_key: ${{ secrets.STAGING_SECREATE_KEY }} 
             staging_variables: ${{vars.STAGING_ENVIRONMENTAL_VARIABLE}}
+            REPOSITORY_SECREATE: ${{secrets.REPOSITORY_SECREATE}}
+            REPOSITORY_VARIABLE: ${{vars.REPOSITORY_VARIABLE}}  
         steps:
             - name: staging environment
               run: |
-                    echo "this is the production env secreate: $PRODUCTION_ENV_SCREATE_KEY"
-                    echo "this is the production env variable: $PRODUCTION_ENV_VARIABLE"
+                    echo "this is the staging env secreate: $staging_secreate_key"
+                    echo "this is the staging env variable: $staging_variables"
                     echo "this is the  REPOSITORY_SECREATE: $REPOSITORY_SECREATE"
                     echo "this is the REPOSITORY VARIABLE: $REPOSITORY_VARIABLE"
