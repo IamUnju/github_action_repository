@@ -5,7 +5,10 @@ on:
 jobs:
     accessing_var:
         runs-on: ubuntu-latest 
+        environment: production
+        env:
+            SECREATE_KEY: ${{secrets.SECREATE_KEY_HERE}}
         steps:
             - name: environmental
               run: |
-                   echo "${{secrets.GITHUB_TOKEN}}"       
+                   echo "$SECREATE_KEY"       
