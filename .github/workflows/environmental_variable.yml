@@ -1,0 +1,11 @@
+name: testing to access the environmental variable 
+
+on:
+    workflow_dispatch:
+jobs:
+    accessing_var:
+        runs-on: ubuntu-latest 
+        steps:
+            - name: environmental
+              run: |
+                   echo "${{secrets.GITHUB_TOKEN}}"       
