@@ -3,7 +3,7 @@ name: testing to access the environmental variable
 on:
     workflow_dispatch:
 jobs:
-    accessing_var:
+    accessing_production_variable:
         runs-on: ubuntu-latest 
         environment: production_environment
         env:
