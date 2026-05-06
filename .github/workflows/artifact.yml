@@ -1,0 +1,32 @@
+name: artifact upload and download
+
+on:
+    workflow_dispatch:
+
+jobs:
+    generating_artifact:
+        name: artifact generation
+        runs-on: ubuntu-latest
+        steps:
+            - name: artifact geneating step
+              run: |
+                    echo "this is the first line in artifact"> articat.txt
+                    exho "generating artifact $(date)" >> articat.txt
+
+            - name: uploading artifact
+              uses: actions/upload-artifact@v7
+              with:
+                    name: my-artifact
+                    path: articat.txt
+
+    consumming_artifact:
+        name: artifact consumer
+        runs-on: ubuntu-latest
+        needs:
+            - generating_artifact
+        steps:
+            - name: downloading artifact
+              uses: actions/download-artifact@v7
+
+            - name: my downloaded artifact
+              run: cat articat.txt    
