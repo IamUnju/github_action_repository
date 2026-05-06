@@ -10,14 +10,14 @@ jobs:
         steps:
             - name: artifact geneating step
               run: |
-                    echo "this is the first line in artifact"> articat.txt
-                    exho "generating artifact $(date)" >> articat.txt
+                    echo "this is the first line in artifact"> artifact.txt
+                    exho "generating artifact $(date)" >> artifact.txt
 
             - name: uploading artifact
               uses: actions/upload-artifact@v7
               with:
                     name: my-artifact
-                    path: articat.txt
+                    path: artifact.txt
 
     consumming_artifact:
         name: artifact consumer
