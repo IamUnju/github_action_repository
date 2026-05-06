@@ -7,8 +7,8 @@ jobs:
         runs-on: ubuntu-latest 
         environment: production_environment
         env:
-            PRODUCTION_ENV_SCREATE_KEY: ${{secrets.PRODUCTION_SECREATE_KEY}}
-            PRODUCTION_ENV_VARIABLE: ${{secrets.PRODUCTION_ENV_VARIABLE}}         
+            PRODUCTION_ENV_SCREATE_KEY: ${{ secrets.PRODUCTION_SECREATE_KEY }}
+            PRODUCTION_ENV_VARIABLE: ${{ vars.PRODUCTION_ENV_VARIABLE }}         
         steps:
             - name: production environmental
               run: |
