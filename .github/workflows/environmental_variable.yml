@@ -5,10 +5,12 @@ on:
 jobs:
     accessing_var:
         runs-on: ubuntu-latest 
-        environment: production
+        environment: production_environment
         env:
-            SECREATE_KEY: ${{secrets.SECREATE_KEY_HERE}}
+            PRODUCTION_ENV_SCREATE_KEY: ${{secrets.PRODUCTION_SECREATE_KEY}}
+            PRODUCTION_ENV_VARIABLE: ${{secrets.PRODUCTION_ENV_VARIABLE}}         
         steps:
-            - name: environmental
+            - name: production environmental
               run: |
-                   echo "$SECREATE_KEY"       
+                   echo "this is the production env secreate: $PRODUCTION_ENV_SCREATE_KEY"
+                   echo "this is the production env variable: $PRODUCTION_ENV_VARIABLE"     
