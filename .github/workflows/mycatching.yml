@@ -8,7 +8,7 @@ jobs:
         steps:
             - name: restore demo
               id: demo_cache
-              uses: j3hempsey-actions/local-cache@v3
+              uses: gigara/rush-cache@v2.2.0
               with:
                 path: demo_cache.txt
                 key: demo_cache-v1
@@ -22,7 +22,7 @@ jobs:
 
             - name: cache save
               if: steps.demo_cache.outputs.cache-hit != 'true'
-              uses: j3hempsey-actions/local-cache@v3
+              uses: gigara/rush-cache@v2.2.0
               with:
                 path: demo_cache.txt
                 key: demo_cache-v1
