@@ -1,4 +1,4 @@
-name: catch
+name: caching
 on:
     workflow_dispatch:
 jobs:
