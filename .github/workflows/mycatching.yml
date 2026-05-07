@@ -1,0 +1,32 @@
+name: catch
+on:
+    workflow_dispatch:
+jobs:
+    restore_catching:
+        name: catching restore
+        runs-on: ubuntu-latest
+        steps:
+            - name: restore demo
+              id: demo_cache
+              uses: j3hempsey-actions/local-cache@v3
+              with:
+                path: demo_cache.txt
+                key: demo_cache-v1
+
+            - name: cache populate
+              if: steps.demo_cache.outputs.cache-hit != 'true'
+              run: |
+                 echo "cache missing and start to save new"
+                 mkdir -p demo_cache
+                 date > demo_cache/timestamp.txt
+
+            - name: cache save
+              if: steps.demo_cache.outputs.cache-hit != 'true'
+              uses: j3hempsey-actions/local-cache@v3
+              with:
+                path: demo_cache.txt
+                key: demo_cache-v1
+            - name: cache validation
+              run: |
+                   echo "cache-hit? -> ${{steps.demo_cache.outputs.cach-hit}}"
+                   cat demo_cache/timestamp.txt

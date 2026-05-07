@@ -12,6 +12,7 @@ jobs:
               run: |
                     echo "this is the first line in artifact"> artifact.txt
                     echo "generating artifact $(date)" >> artifact.txt
+                    
 
             - name: uploading artifact
               uses: actions/upload-artifact@v7
