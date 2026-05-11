@@ -19,7 +19,17 @@ jobs:
               run: |
                 gh pr  list --limit 5
               env:
-                GH_TOKEN: ${{github.token}}    
+                GH_TOKEN: ${{github.token}}
+
+            - name: add label to pr
+              env:
+                githuh_token: ${{github.token}}
+              run: |
+                   gh pr edit 1 --add-label "document as new label"
+            - name: confirm the failue
+              if: failure()
+              run: | 
+                echo "the label assign failure due to permission of the token is read only"              
 
          
 
