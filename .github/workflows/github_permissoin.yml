@@ -36,14 +36,14 @@ jobs:
         runs-on: ubuntu-latest
         permissions:
             pull-requests: write
-        continue-on-error: true    
+        # continue-on-error: true    
         steps:
             - uses: actions/checkout@v4
 
             - name: install Github CLI
               run: |
                  sudo apt-get update -qq
-                 sudo apt-get update -y gh
+                 sudo apt-get install -y gh
 
             - name: write a label
               env:
