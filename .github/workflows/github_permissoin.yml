@@ -37,6 +37,11 @@ jobs:
         permissions:
             pull-requests: write
         steps:
+            - uses: actions/checkout@4
+            - name: install Github CLI
+              run: |
+                sudo apt-get update -pp && sudo apt-get update -y gh
+
             - name: write a label
               run: |
                gh pr edit 1 --add-label "NEW DOCUMENT"
