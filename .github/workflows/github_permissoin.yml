@@ -1,0 +1,23 @@
+name: github permission
+
+on:
+    workflow_dispatch:
+        
+jobs:
+    read_only_pull_request:
+        name: pull_request_read
+        runs-on: ubuntu-latest
+        permissions:
+            pull-requests: read
+        continue-on-error: true    
+        steps:
+            - uses: actions/checkout@v4
+            - name: install and update githubCLI
+              run: |
+               sudo apt-get update -qq && sudo apt-get install -y gh
+            - name: listing pr
+              run: |
+                gh pr  list --limit 5
+              env:
+                GH_TOKEN: ${{github.token}}    
+
