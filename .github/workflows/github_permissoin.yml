@@ -48,7 +48,7 @@ jobs:
 
             - name: create label
               run: |
-                gh label create "documentations" as new label
+                gh label create "documentations"
               env: 
                 GH_TOKEN: ${{github.token}}  
                       
