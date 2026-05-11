@@ -38,9 +38,10 @@ jobs:
             pull-requests: write
         steps:
             - uses: actions/checkout@v4
+
             - name: install Github CLI
               run: |
-                sudo apt-get update -qq && sudo apt-get update -y gh
+                sudo apt-get update && sudo apt-get update -y gh
 
             - name: write a label
               run: |
