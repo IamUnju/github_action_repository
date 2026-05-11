@@ -36,6 +36,7 @@ jobs:
         runs-on: ubuntu-latest
         permissions:
             pull-requests: write
+            issues: write
         # continue-on-error: true    
         steps:
             - uses: actions/checkout@v4
@@ -45,6 +46,12 @@ jobs:
                  sudo apt-get update -qq
                  sudo apt-get install -y gh
 
+            - name: create label
+              run: |
+                gh label create "NEW DOCUMENTS" --color green || true
+              env: 
+                gh_token: ${{github.token}}  
+                      
             - name: write a label
               env:
                 GH_TOKEN: ${{github.token}}
