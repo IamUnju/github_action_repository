@@ -23,7 +23,7 @@ jobs:
 
             - name: add label to pr
               env:
-                githuh_token: ${{github.token}}
+                GH_TOKEN: ${{github.token}}
               run: |
                    gh pr edit 1 --add-label "document as new label"
             - name: confirm the failue
@@ -50,7 +50,7 @@ jobs:
               run: |
                 gh label create "NEW DOCUMENT" --color green || true
               env: 
-                gh_token: ${{github.token}}  
+                GH_TOKEN: ${{github.token}}  
                       
             - name: write a label
               env:
