@@ -44,10 +44,13 @@ jobs:
                 sudo apt-get update && sudo apt-get update -y gh
 
             - name: write a label
-              run: |
-               gh pr edit 1 --add-label "NEW DOCUMENT"
               env:
                 GH_TOKEN: ${{github.token}}
-
-         
+              run: |
+               gh pr edit 1 --add-label "NEW DOCUMENT"
+            - name: write confirmation
+              if: success()
+              run: | 
+                echo "label assignment done succesiful"
+                
 
