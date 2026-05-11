@@ -7,8 +7,8 @@ jobs:
     read_only_pull_request:
         name: pull_request_read
         runs-on: ubuntu-latest
-        permissions: {}
-            # pull-requests: read
+        permissions:
+              pull-requests: read
         continue-on-error: true    
         steps:
             - uses: actions/checkout@v4
@@ -29,7 +29,19 @@ jobs:
             - name: confirm the failue
               if: failure()
               run: | 
-                echo "the label assign failure due to permission of the token is read only"              
+                echo "the label assign failure due to permission of the token is read only" 
+
+    write_to_pr:
+        name: assign a label to a pr
+        runs-on: ubuntu-latest
+        permissions:
+            pull-requests: write
+        steps:
+            - name: write a label
+              run: |
+               gh pr edit 1 --add-label "NEW DOCUMENT"
+              env:
+                GH_TOKEN: ${{github.token}}
 
          
 
