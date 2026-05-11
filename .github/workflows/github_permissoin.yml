@@ -48,7 +48,7 @@ jobs:
 
             - name: create label
               run: |
-                gh label create "NEW DOCUMENT" --color green || true
+                gh label create "NEW DOCUMENT" --color blue || true
               env: 
                 GH_TOKEN: ${{github.token}}  
                       
