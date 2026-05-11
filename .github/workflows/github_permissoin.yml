@@ -7,8 +7,8 @@ jobs:
     read_only_pull_request:
         name: pull_request_read
         runs-on: ubuntu-latest
-        permissions:
-            pull-requests: read
+        permissions: {}
+            # pull-requests: read
         continue-on-error: true    
         steps:
             - uses: actions/checkout@v4
@@ -20,4 +20,6 @@ jobs:
                 gh pr  list --limit 5
               env:
                 GH_TOKEN: ${{github.token}}    
+
+         
 
