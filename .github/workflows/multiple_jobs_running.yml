@@ -29,5 +29,10 @@ jobs:
             - name: run all step except 2c
               if: ${{ ! (matrix.number==2 && matrix.letter=='c') }}
               run: echo "this step runs for ${{matrix.number}}${{matrix.letter}}"
-
+    sleep_job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: sleep
+              run: sleep 100
+              timeout-minutes: 2
 
