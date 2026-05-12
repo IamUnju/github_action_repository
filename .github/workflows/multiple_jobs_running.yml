@@ -1,0 +1,33 @@
+name: matrix and concurrency
+
+on:
+    workflow_dispatch:
+concurrency:
+    group: ${{github.workflow}}-${{github.ref}}
+    cancel-in-progress: true
+
+jobs:
+    matrix_job:
+        name: normal_matrix
+        runs-on: ubuntu-latest
+        strategy:
+            fail-fast: true 
+            matrix:
+                number: [1,2]
+                letter: [a, b, c]
+                exclude:
+                    - number: 1
+                      letter: c
+        timeout-minutes: 5
+        steps:
+            - name: show number and letter
+              run: | 
+                    echo "here below is the list of matrix"
+                    echo "number" ${{matrix.number}}
+                    echo "letter" ${{matrix.letter}}
+            
+            - name: run all step except 2c
+              if: ${{! (matrix.number==2 && matrix.letter=='c')}}
+              run: this step runs for ${{matrix.number}} && ${{matrix.letter}}
+
+
