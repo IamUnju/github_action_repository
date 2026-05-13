@@ -9,6 +9,6 @@ jobs:
         steps:
             - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
             - name: greate
-              uses: ./authoring_action/who_to_greate.yml
+              uses: ./authoring_action/
               with:
                  who-to-great: "DAMLA EMMANUEL"
