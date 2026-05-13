@@ -1,0 +1,14 @@
+name: send greating composite
+on:
+    workflow_dispatch:
+
+jobs:
+    receive-greating:
+        name: receive great
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
+            - name: greate
+              uses: ./authoring_action/who_to_greate.yml
+              with:
+                 who-to-great: "DAMLA EMMANUEL"
