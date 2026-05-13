@@ -6,11 +6,12 @@ inputs:
      description: 'who to great'
      required: true
      default: 'kenny ngoe'
+outputs:
+    random_number_out:
+       description: random number
+       value: ${{ steps.random_number_generator.outputs.random_number_out}}   
 
-# outputs: 
-#     great-output:
-#        random-number:
-#        value: ${{steps.great-output.}}
+
 runs:
   using: 'composite'
   steps:

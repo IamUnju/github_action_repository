@@ -16,6 +16,6 @@ jobs:
                  who-to-great: "DAMLA EMMANUEL"
             - name: get value from composite action
               env:
-                from_action: ${{ steps.from_action_id.outputs.random_number_generator }}
+                from_action: ${{ steps.from_action_id.outputs.random_number_out }}
               run: |
                    echo "this is from the action there $from_action"     
