@@ -10,8 +10,6 @@ outputs:
     random_number_out:
        description: random number
        value: ${{ steps.random_number_generator.outputs.random_number_out}}   
-
-
 runs:
   using: 'composite'
   steps:
@@ -20,8 +18,7 @@ runs:
        shell: bash 
        env:
           greatings: ${{inputs.who-to-great}}
-          
-
+      
      - name: random number
        shell: bash
        id: random_number_generator

@@ -19,3 +19,4 @@ jobs:
                 from_action: ${{ steps.from_action_id.outputs.random_number_out }}
               run: |
                    echo "this is from the action there $from_action"     
+              shell: bash     
