@@ -1,12 +1,14 @@
 name: 'send greating action'
-
 description: 'who to great'
+
+
 inputs:
-    who-to-great:
-    description: 'who to great'
-    required: true
-    default: 'kenny ngoe'
-# outputs:
+   who-to-great:
+     description: 'who to great'
+     required: true
+     default: 'kenny ngoe'
+
+# outputs: 
 #     great-output:
 #        random-number:
 #        value: ${{steps.great-output.}}
