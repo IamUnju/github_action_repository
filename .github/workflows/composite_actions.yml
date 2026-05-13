@@ -7,8 +7,15 @@ jobs:
         name: receive great
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
-            - name: greate
+            - name: checkout
+              uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
+              id: from_action_id
+            - name: send greatin  
               uses: ./authoring_action/
               with:
                  who-to-great: "DAMLA EMMANUEL"
+            - name: get value from composite action
+              env:
+                from_action: ${{ steps.from_action_id.outputs.random_number_generator }}
+              run: |
+                   echo "this is from the action there $from_action"     

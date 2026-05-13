@@ -1,7 +1,6 @@
 name: 'send greating action'
 description: 'who to great'
 
-
 inputs:
    who-to-great:
      description: 'who to great'
@@ -19,6 +18,11 @@ runs:
        run: echo "hello $greatings"
        shell: bash 
        env:
-          greatings: ${{inputs.who-to-great}}     
-    
-    
+          greatings: ${{inputs.who-to-great}}
+          
+
+     - name: random number
+       shell: bash
+       id: random_number_generator
+       run: echo random-number "$RANDOM_NUMBER"
+
